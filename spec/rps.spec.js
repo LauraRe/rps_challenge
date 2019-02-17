@@ -19,9 +19,9 @@ describe('Rps', () => {
         expect(rps.check('Paper', 'Scissors')).to.eql('Scissors wins')
     })
 
-    it('returns a random computer choice', () => {
-        computerOptions = ['Rock', 'Paper', 'Scissors']
-        expect(computerOptions.randomChoice()).to.eql('Rock' || 'Paper' || 'Scissors')
-    })
+    // it('returns a random computer choice', () => {
+    //     computerOptions = ['Rock', 'Paper', 'Scissors']
+    //     expect(computerOptions.randomChoice()).to.eql('Rock' || 'Paper' || 'Scissors')
+    // })
 
 })
