@@ -7,6 +7,10 @@ describe('Rps', () => {
         expect(rps.check('Banana', 'Apple')).to.eql('You must choose Rock, Paper or Scissors!')
     })
 
+    it('returns Even if same value is inserted', () => {
+        expect(rps.check('Rock', 'Rock')).to.eql('Even!')
+    })
+
     it('returns Paper wins if Rock vs Paper', () => {
         expect(rps.check('Rock', 'Paper')).to.eql('Paper wins')
     })
