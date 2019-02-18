@@ -8,7 +8,7 @@ describe('Rps', () => {
     })
 
     it('returns Even if same value is inserted', () => {
-        expect(rps.check('Rock', 'Rock')).to.eql('Even!')
+        expect(rps.check('Rock', 'Rock')).to.eql('Tie!')
     })
 
     it('returns Paper wins if Rock vs Paper', () => {
@@ -23,9 +23,15 @@ describe('Rps', () => {
         expect(rps.check('Paper', 'Scissors')).to.eql('Scissors wins')
     })
 
-    // it('returns a random computer choice', () => {
-    //     computerOptions = ['Rock', 'Paper', 'Scissors']
-    //     expect(computerOptions.randomChoice()).to.eql('Rock' || 'Paper' || 'Scissors')
-    // })
+    it('returns Paper wins if Paper vs Rock', () => {
+        expect(rps.check('Paper', 'Rock')).to.eql('Paper wins')
+    })
 
+    it('returns Rock wins if Scissors vs Rock', () => {
+        expect(rps.check('Scissors', 'Rock')).to.eql('Rock wins')
+    })
+
+    it('returns Scissors wins if Scissors vs Paper', () => {
+        expect(rps.check('Scissors', 'Paper')).to.eql('Scissors wins')
+    })
 })
