@@ -24,7 +24,7 @@ describe('User can input a string value and get Rps results ', () => {
 
   it('clicking on the "Check" button in one-player game', async () => {
     await browser.clickOnButton('a[href="onePlayer.html"]')
-    await browser.fillIn("input[id='value']", { with: "Rock" })
+    // await browser.select("input[id='value']", { with: "rock" })
     await browser.clickOnButton("input[value='Check']")
     let content = await browser.getContent("[id='display_answer']")
     expect(content).to.be.a('string');

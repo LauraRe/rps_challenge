@@ -1,30 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Laura's Rock-Paper-Scissors Game</title>
-    </head>
 
-    <body>
-        <input type="text" id="value1">
-        <input type="text" id="value2">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <title>Laura's Rock-Paper-Scissors Game</title>
+</head>
+
+<body>
+    <div class="container mx-auto text-center">
+        <div><img src="./src/img/Doers-Fist-Bump.gif" class="m-4 p-20" /></div>
+        <p class="m-6 text-3xl font-bold">
+            The Rock-Paper-Scissors: Two Players Game
+        </p>
+        <input type="text" id="value1">Player1</input>
+        <input type="text" id="value2">Player2</input>
         <input type="submit" value="Check" id="button">
         <div id="display_answer"></div>
-        <script src="./src/js/rps.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                let button = document.getElementById('button')
-                let displayDiv = document.getElementById('display_answer')
-                button.addEventListener('click', () =>{
-                    let value1 = document.getElementById('value1').value
-                    let value2 = document.getElementById('value2').value
-                    let rps = new Rps
-                    let result = rps.checkTwo(value1, value2)
-                    displayDiv.innerHTML = result;
-                })
+        <div class="m-6">
+            <div class="text-2xl font-bold">Instructions:</div>
+            <div class="text-xl font-semibold">
+                <p class="mt-2">Player1 write rock, paper or scissors</p>
+                <p class="mt-2">Player2 write rock, paper or scissors</p>
+                <p class="mt-2">Press the 'Check' button!</p>
+            </div>
+        </div>
+        <p class="mt-8 text-base font-normal">
+            If Rock vs Scissors you'll see 'Rock wins'
+        </p>
+        <p class="mt-4 text-base font-normal">
+            If Paper vs Scissors you'll see 'Scissors wins'
+        </p>
+        <p class="mt-4 text-base font-normal">
+            If Paper vs Rock you'll see 'Paper wins'
+        </p>
+    </div>
+    <script src="./src/js/rps.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let button = document.getElementById('button')
+            let displayDiv = document.getElementById('display_answer')
+            button.addEventListener('click', () => {
+                let value1 = document.getElementById('value1').value
+                let value2 = document.getElementById('value2').value
+                let rps = new Rps
+                let result = rps.checkTwo(value1, value2)
+                displayDiv.innerHTML = result;
             })
-        </script>
-    </body>
+        })
+    </script>
+</body>
+
 </html>
