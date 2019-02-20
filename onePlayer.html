@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <title>Laura's Rock-Paper-Scissors Game</title>
+</head>
+
+<body>
+    <div class="text-xl font-medium mt-5 ml-5"><a href="/">Back</a></div>
+    <div class="container mx-auto text-center">
+        <div><img src="./src/img/scissors.png" class="m-4 p-20" /></div>
+        <p class="m-6 text-3xl font-bold">
+            The Rock-Paper-Scissors: One Player Game
+        </p>
+        <div class="m-10"><input type="submit" value="Play Again" id="playAgain" class="invisible bg-blue hover:bg-green text-white font-bold py-2 px-4 rounded-full"></div>
+        <select id="value" class="bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            <option value="rock">Rock</option>
+            <option value="paper">Paper</option>
+            <option value="rock">Scissors</option>
+        </select>
+        <input type="submit" value="Check" id="button" class="bg-red hover:bg-green text-white font-bold py-2 px-4 rounded-full">
+        <div id="display_answer" class="m-10 text-blue text-2xl italic font-bold"></div>
+        <div class="m-6">
+        </div>
+
+        <div class="m-20">
+            <p class="text-2xl font-semibold">Instructions:</p>
+            <p class="text-xl font-medium italic mt-10"> Choose rock, paper or scissors and press the 'Check' button!</p>
+            <p class="text-xl font-semibold mt-10">How to interpret the results:</p>
+            <p class="mt-5 text-base font-normal">
+                If Rock vs Scissors you'll see 'Rock wins'
+            </p>
+            <p class="mt-4 text-base font-normal">
+                If Paper vs Scissors you'll see 'Scissors wins'
+            </p>
+            <p class="mt-4 text-base font-normal">
+                If Paper vs Rock you'll see 'Paper wins'
+            </p>
+        </div>
+    </div>
+    <script src="./src/js/rps.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let button = document.getElementById('button')
+            let displayDiv = document.getElementById('display_answer')
+            button.addEventListener('click', () => {
+                let value = document.getElementById('value').value
+                let rps = new Rps
+                let result = rps.checkOne(value)
+                displayDiv.innerHTML = result;
+                document.getElementById('playAgain').classList.remove('invisible')
+            })
+
+            let play = document.getElementById('playAgain')
+            play.addEventListener('click', () => {
+                location.reload()
+            })
+        })
+    </script>
+</body>
+
+</html>

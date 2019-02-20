@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <title>Laura's Rock-Paper-Scissors Game</title>
+</head>
+
+<body>
+    <div class="text-xl font-medium mt-5 ml-5"><a href="/">Back</a></div>
+    <div class="container mx-auto text-center">
+        <div><img src="./src/img/Doers-Fist-Bump.gif" class="m-4 p-20" /></div>
+        <p class="m-6 text-3xl font-bold">
+            The Rock-Paper-Scissors: Two Players Game
+        </p>
+        <div>
+            <input type="submit" value="Play Again" id="playAgain" class="invisible bg-purple hover:bg-green text-white font-bold py-2 px-4 rounded-full">
+            <div id="player1">
+                <label>Player1<input type="text" id="value1" class="border border-solid rounded-full"></input></label>
+                <input type="submit" value="Submit" id="submit1" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full">
+                <p class="mt-5 text-xl italic">Player1 write rock, paper or scissors</p>
+            </div>
+            <div class="invisible" id="player2">
+                <label>Player2<input type="text" id="value2" class="border border-solid rounded-full"></input></label>
+                <input type="submit" value="Submit" id="submit2" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded-full">
+                <p class="mt-5 text-xl italic">Player2 write rock, paper or scissors</p>
+            </div>
+            <div class="mb-10 text-2xl text-blue italic font-bold" id="display_answer"></div>
+            <input class="invisible bg-red hover:bg-green text-white font-bold py-2 px-4 rounded-full" type="submit"
+                value="Check" id="resultButton">
+        </div>
+        <div class="m-20">
+            <p class="text-xl font-medium">How to interpret the results:</p>
+            <p class="mt-8 text-base font-normal">
+                If Rock vs Scissors you'll see 'Rock wins'
+            </p>
+            <p class="mt-4 text-base font-normal">
+                If Paper vs Scissors you'll see 'Scissors wins'
+            </p>
+            <p class="mt-4 text-base font-normal">
+                If Paper vs Rock you'll see 'Paper wins'
+            </p>
+        </div>
+    </div>
+    <script src="./src/js/rps.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let button = document.getElementById('resultButton')
+            let displayDiv = document.getElementById('display_answer')
+            button.addEventListener('click', () => {
+                let value1 = document.getElementById('value1').value
+                let value2 = document.getElementById('value2').value
+                let rps = new Rps
+                let result = rps.checkTwo(value1, value2)
+                displayDiv.innerHTML = result
+                document.getElementById('playAgain').classList.remove('invisible')
+            })
+
+            let player1 = document.getElementById('submit1')
+            player1.addEventListener('click', () => {
+                document.getElementById('player1').classList.add('invisible')
+                document.getElementById('player2').classList.remove('invisible')
+            })
+
+            let player2 = document.getElementById('submit2')
+            player2.addEventListener('click', () => {
+                document.getElementById('player2').classList.add('invisible')
+                document.getElementById('resultButton').classList.remove('invisible')
+            })
+
+            let play = document.getElementById('playAgain')
+            play.addEventListener('click', () => {
+                location.reload()
+            })
+        })
+    </script>
+</body>
+
+</html>

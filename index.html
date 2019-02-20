@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Laura's Rock-Paper-Scissors Game</title>
-    </head>
 
-    <body>
-        <input type="text" id="value1">
-        <input type="text" id="value2">
-        <input type="submit" value="Check" id="button">
-        <div id="display_answer"></div>
-        <script src="./src/js/rps.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                let button = document.getElementById('button')
-                let displayDiv = document.getElementById('display_answer')
-                button.addEventListener('click', () =>{
-                    let value1 = document.getElementById('value1').value
-                    let value2 = document.getElementById('value2').value
-                    let rps = new Rps
-                    let result = rps.check(value1, value2)
-                    displayDiv.innerHTML = result;
-                })
-            })
-        </script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <title>Laura's Rock-Paper-Scissors Game</title>
+</head>
+
+<body>
+    <div class="container mx-auto text-center">
+        <div class="mt-20" ><img src="./src/img/rock-paper-scissors.png" /></div>
+        <p class="mt-20 text-4xl font-bold">
+            The Rock-Paper-Scissors Game
+        </p>
+        <div class="text-2xl font-medium mt-20"><a href="onePlayer.html">One-Player Game</a></div>
+        <div class="text-2xl font-medium mt-4"><a href="twoPlayers.html">Two-Players Game</a></div>
+    </div>
+    <div class="text-xl text-center font-medium italic mt-20">
+        <p>"Scissors are over powered. Rock is fine." -Paper</p>
+    </div>
+</body>
+
 </html>
