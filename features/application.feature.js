@@ -14,7 +14,11 @@ describe('User can input a string value and get Rps results ', () => {
   });
 
   it('clicking on the "Check" button in two-players game', async () => {
-    await browser.clickOnButton("#two")
+    await browser.page.evaluate(() => {
+      let button = document.getElementById("two");
+      button.click()
+    })
+    await browser.page.waitFor(1000)
     await browser.fillIn("input[id='value1']", { with: "Rock" })
     await browser.clickOnButton("#submit1")
     await browser.fillIn("input[id='value2']", { with: "Paper" })
