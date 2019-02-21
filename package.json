@@ -21,13 +21,11 @@
   },
   "homepage": "https://github.com/LauraRe/rps_challenge#readme",
   "devDependencies": {
-    "e2e_training_wheels": "0.0.36"
+    "e2e_training_wheels": "0.0.36",
+    "sinon": "^7.2.4"
   },
   "bin": {
     "training-wheels:generate": "node ./node_modules/e2e_training_wheels/dist/generators.js",
     "training-wheels:install": "node ./node_modules/e2e_training_wheels/dist/install.js"
-  },
-  "dependencies": {
-    "sinon": "^7.2.4"
   }
 }
